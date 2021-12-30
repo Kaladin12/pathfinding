@@ -47,6 +47,15 @@ window.onload = function init(){
     
 }
 
+function clearGrid(){
+    for (let div of container.children) {
+        if (div.className == "grid"){
+            div.style.backgroundColor = "white"
+        }
+        
+    }
+}
+
 class Graph{
     constructor(){
         this.adjacencyList = {};
@@ -368,6 +377,7 @@ document.addEventListener('keyup', async (event) => {
     var start = document.getElementsByClassName('source');
     var destination = document.getElementsByClassName('destination');
     let came_from = undefined;
+    clearGrid()
     if (event.code === 'Numpad1' ){
         came_from =  await BFS(barriers, start, destination)
     }
